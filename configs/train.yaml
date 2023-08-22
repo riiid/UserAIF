@@ -1,0 +1,38 @@
+wandb:
+  use_wandb: True
+  exp_name: 'ENEM'
+  project_name: "UserAIF"
+
+cat:
+  num_acquisition: 10  
+  method: "KLI"
+
+model:
+  common:
+    num_d: 1
+    num_s: 10000 
+    num_q: 185
+    num_kc: 1
+
+train:
+  lr: 0.01
+  max_epochs: 3000
+  patience: 10
+  batch_size: 200000
+
+data:
+  root: "./artifacts/data/"
+  split_ratio: 0.8
+  test_pool_ratio : 0.8
+  path_dict:
+    original_interactions: "df_org.csv"
+    interactions : "df_unbiased+biased.csv"
+    unbiased_users: "users_unbiased.npy"
+    biased_users: "users_biased.npy"
+    test_users: "users_test.npy"
+user_aif: False 
+
+random_seed: 2023
+num_workers: 8
+gpus: 7
+
